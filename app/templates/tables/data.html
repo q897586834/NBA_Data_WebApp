@@ -1,0 +1,1949 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Data Tables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../static/plugins/datatables/dataTables.bootstrap4.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../static/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Home</a>
+      </li>
+      <!-- <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li> -->
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-comments-o"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../static/image/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Xu Wentao
+                  <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../static/image/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Li Qingquan
+                  <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../../static/image/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Zhuang Zikai
+                  <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-bell-o"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fa fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+            class="fa fa-th-large"></i></a>
+      </li>
+    </ul>
+
+
+  </nav>
+  <!-- /.navbar -->
+
+
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{{ url_for('main.home_page') }}" class="brand-link">
+      <img src="../../static/image/nba_data.jpg"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">NBA Data</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../static/image/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{ current_user.name }}</a>
+        </div>
+      </div>
+
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Dashboard
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url_for('main.home_page') }}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Dashboard v1</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="../widgets.html" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li> -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+                Charts
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url_for('main.player_data_scatter_3d') }}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Player Data</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-tree"></i>
+              <p>
+                UI Elements
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../UI/general.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/icons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Icons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/buttons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Buttons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../UI/sliders.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Sliders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-edit"></i>
+              <p>
+                Forms
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../forms/general.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>General Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/advanced.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Advanced Elements</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../forms/editors.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Editors</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-search"></i>
+              <p>
+                Tables
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Data Tables</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Others
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="tables/simple.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Others1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="tables/data.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Others2</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- <li class="nav-header">EXAMPLES</li>
+          <li class="nav-item">
+            <a href="../calendar.html" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+                Calendar
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-envelope-o"></i>
+              <p>
+                Mailbox
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../mailbox/mailbox.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/compose.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../mailbox/read-mail.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                Pages
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/invoice.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Invoice</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/profile.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/login.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Login</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/register.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Register</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/lockscreen.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Lockscreen</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-plus-square-o"></i>
+              <p>
+                Extras
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../examples/404.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Error 404</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/500.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Error 500</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../examples/blank.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Blank Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../../starter.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Starter Page</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-item">
+            <a href="https://adminlte.io/docs" class="nav-link">
+              <i class="nav-icon fa fa-file"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+          <li class="nav-header">LABELS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-danger"></i>
+              <p class="text">Important</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-warning"></i>
+              <p>Warning</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-circle-o text-info"></i>
+              <p>Informational</p>
+            </a>
+          </li> -->
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Data Tables</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Data Tables</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <!-- <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Hover Data Table</h3>
+            </div>
+            <div class="card-body">
+              
+            </div>
+          </div> -->
+          <!-- /.card -->
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Data Table With Full Features</h3>
+              <p></p>
+              <div style="font-size: 16px">数据表
+              <select id="selectid1" align="center">
+                <option value="None_Info", align="center"> ------ </option>
+                <option value="Player_Info" align="center"> 球员信息 </option>
+                <option value="Player_Contract" align="center"> 球员合同 </option>
+                <option value="Team_Info" align="center"> 球队信息 </option>
+                <option value="Coach_Info" align="center"> 教练信息 </option>
+                <!-- <option value="User_Info" align="center"> 用户信息 </option> -->
+              </select>
+
+              <!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp操作
+              <select id="selectid2" align="center">
+                <option>查询数据</option>
+                <option>添加数据</option>
+                <option>删除数据</option>
+                <option>修改数据</option>
+              </select> -->
+              </div>
+
+            </div>
+
+
+
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div style="font-size: 16px">
+
+                <div id="query_condition_dynamic">
+                <!-- <p>Team Name</p>
+                <form action="/" method="post" id="formid" >
+                  <input type="text"  name="InNumber" id="InNumber" align="center" style="height: 32px; width: 400px; font-size: 16px" placeholder="HOU GSW OKC...">
+
+                <p></p>
+
+                Season
+                <select id="selectid3" align="center">
+                  <option value="all_seasons" align="center"> all_seasons </option>
+                  <option value="06/07" align="center"> 06/07 </option>
+                  <option value="07/08" align="center"> 07/08 </option>
+                  <option value="08/09" align="center"> 08/09 </option>
+                  <option value="09/10" align="center"> 09/10 </option>
+                  <option value="10/11" align="center"> 10/11 </option>
+                  <option value="11/12" align="center"> 11/12 </option>
+                  <option value="12/13" align="center"> 12/13 </option>
+                  <option value="13/14" align="center"> 13/14 </option>
+                  <option value="14/15" align="center"> 14/15 </option>
+                  <option value="15/16" align="center"> 15/16 </option>
+                  <option value="16/17" align="center"> 16/17 </option>
+                </select>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                <input type="button" name="buttonid1" value="submit" align="center" onclick="query_data_team()">
+                </form> -->
+                </div>
+
+              </div>
+              <p></p>
+
+              <!-- 根据输入的球队名称动态插入球队图表及其他信息 -->
+              <div id="query_info_dynamic">
+                <!-- <ul>
+                  <li>
+                    <img id="team_icon_dynamic">
+                  </li>
+                </ul>
+                <div>
+                  <p id="team_city_dynamic"></p>
+                  <p id="team_year_dynamic"></p>
+                  <p></p>
+                </div> -->
+              </div>
+
+              <div id="table_dynamic">
+              <table id="example3" class="table table-bordered table-striped">
+                <thead> 
+                <!-- <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Role_id</th>
+                </tr> -->
+                </thead>
+                <!-- <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Role_id</th>
+                </tr>
+                </tfoot> -->
+              </table>
+              </div>
+
+
+              <!-- Modal -->
+              <!-- Modal for Player Data Info -->
+<div class="modal fade" id="Modal_player_data" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_player_data" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ModalLabel_player_data">新增</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_data_edit_player_name" placeholder="球员名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_data_edit_season" placeholder="赛季">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_data_edit_team_name" placeholder="球队名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_data_edit_attri_value" placeholder="属性值">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_data_edit_attri_name" placeholder="属性类型">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="player_data_initData">添加模拟数据</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="player_data_save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+              <!-- Modal for Player Contract Info -->
+<div class="modal fade" id="Modal_player_contract" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_player_contract" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ModalLabel_player_contract">新增</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_contract_edit_player_name" placeholder="球员名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_contract_edit_team_name" placeholder="球队名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_contract_edit_season" placeholder="赛季">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="player_contract_edit_salary" placeholder="薪水">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="player_contract_initData">添加模拟数据</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="player_contract_save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+              <!-- Modal for Team Info -->
+<div class="modal fade" id="Modal_team_data" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_team_data" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ModalLabel_team_data">新增</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="team_edit_team_name" placeholder="球队名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="team_edit_season" placeholder="赛季">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="team_edit_attri_value" placeholder="属性值">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="team_edit_attri_name" placeholder="属性类型">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="team_initData">添加模拟数据</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="team_save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+              
+              <!-- Modal for Coach Info -->
+<div class="modal fade" id="Modal_coach_data" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_coach_data" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="ModalLabel_coach_data">新增</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="coach_edit_coach_name" placeholder="教练名称">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="coach_edit_season" placeholder="赛季">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="coach_edit_win" placeholder="胜场数">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="coach_edit_loss" placeholder="负场数">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="coach_initData">添加模拟数据</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="coach_save">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>  <!-- /.control-sidebar -->
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../static/js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../../static/plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../static/plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- SlimScroll -->
+<script src="../../static/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../static/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../static/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../static/js/demo.js"></script>
+<!-- page script -->
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("#selectid1").on('change',function(){    // 数据表选项改变
+                var objS=document.getElementById('selectid1');
+                var table=objS.options[objS.selectedIndex].value;
+
+                if (table === "Player_Info") 
+                {
+                    changeto_player_table("query_condition_dynamic", "query_info_dynamic",
+                                          "table_dynamic");
+                } 
+                else if (table === "Team_Info")
+                {
+                    changeto_team_table("query_condition_dynamic", "query_info_dynamic",
+                                        "table_dynamic");
+                }
+                else if (table === "Player_Contract")
+                {
+                    changeto_playercontract_table("query_condition_dynamic", "query_info_dynamic",
+                                        "table_dynamic");
+                }
+                else if (table === "Coach_Info") 
+                {
+                    changeto_coach_table("query_condition_dynamic", "query_info_dynamic",
+                                         "table_dynamic");
+                }
+            });
+        });
+
+
+        // 点击Submit选项
+        function query_data_player(){
+            var objS1 = document.getElementById('selectid3');
+            var season = objS1.options[objS1.selectedIndex].value;
+            var player_name = document.getElementById('InPlayer').value;
+
+            var data = {
+              'season': season,
+              'player_name': player_name
+            };
+            // 111
+            changePlayerInfo("player_year_start_dynamic", "player_year_end_dynamic", 
+                             "player_position_dynamic", "player_height_dynamic", 
+                             "player_weight_dynamic", "player_birth_year_dynamic",
+                             "player_college_dynamic", data);
+            player_data_table(data);
+        };
+
+        function query_contract_player(){
+            var objS1 = document.getElementById('selectid3');
+            var season = objS1.options[objS1.selectedIndex].value;
+            var player_name = document.getElementById('InPlayer').value;
+            var team_name = document.getElementById('InTeam').value;
+
+            var data = {
+              'season': season,
+              'team_name': team_name,
+              'player_name': player_name
+            };
+
+            player_contract_table(data);
+        };
+
+        function query_data_team(){
+            var objS1 = document.getElementById('selectid3');
+            var season = objS1.options[objS1.selectedIndex].value;
+            var team_name = document.getElementById('InTeam').value;
+
+            var data = {
+              'season': season,
+              'team_name': team_name
+            };
+
+            changeImg("team_icon_dynamic", team_name);
+            changeTeamInfo("team_city_dynamic", "team_year_dynamic", data);
+            team_data_table(data);
+        };
+
+        function query_data_coach(){
+            var objS1 = document.getElementById('selectid3');
+            var season = objS1.options[objS1.selectedIndex].value;
+            var coach_name = document.getElementById('InCoach').value;
+
+            var data = {
+              'season': season,
+              'coach_name': coach_name
+            };
+
+            coach_data_table(data);
+        };
+
+
+
+/*                          
+*                          *
+*                          *
+*     数据表增删改查的实现    *
+*                          *
+*                          *
+*/
+
+
+var var_team_data_table, var_player_data_table, var_player_contract_table, var_coach_data_table;
+var player_data_editFlag = false;
+var player_contract_editFlag = false;
+var team_editFlag = false;
+var coach_editFlag = false;
+        
+
+
+//
+//
+//    Player Data Table
+//
+//
+
+$("#player_data_save").click(player_data_add);    // Modal的保存执行player_data_add函数
+$("#player_data_initData").click(player_data_initSingleData);    
+// Modal的添加模拟数据，执行player_data_initSingleData
+
+        // 222
+        function player_data_table(data){
+            var player_name = document.getElementById('InPlayer').value;
+
+            var_player_data_table = $('#example3').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order": [0, "asc"],
+            "ajax": {
+              "url": "{{ url_for('api.player_data_table') }}",
+              "type": "POST",
+              "data": data
+            },
+            "destroy": true,
+            "columns": [
+                {"title": "Season"},
+                {"title": "Team Name"},
+                {"title": "Attribute Value"},
+                {"title": "Attribute Name"},
+                {"title": "Operation"}
+            ],
+            "columnDefs": [
+                {
+                    targets: 4,
+                    render: function(data, type, row, meta) {
+                        var context = 
+                        {
+                            'func': [
+                                {"name": "修改", "fn": "player_data_edit(\'" + player_name + "\', \'" + row["0"] + "\', \'" + row["1"] + "\', \'" + row["2"] + "\', \'" + row["3"] + "\')", "type": "primary"},
+                                {"name": "删除", "fn": "player_data_del(\'" + player_name + "\', \'" + row["0"] + "\', \'" + row["1"] + "\', \'" + row["3"] + "\')", "type": "danger"}
+                            ]
+                        };
+                        // var html = template(context);
+                        // return html;
+                        var html1 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][0]["fn"] + '">' + context['func'][0]["name"] + '</button>'
+                        var html2 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][1]["fn"] + '">' + context['func'][1]["name"] + '</button>'
+                        return html1 + html2;
+                    }
+                }
+            ]
+            })
+        };
+
+
+        function player_data_edit(player_name, season, team_name, attri_value, attri_name) {
+        player_data_editFlag = true;
+        $("#ModalLabel_player_data").text("修改");
+        $("#player_data_edit_player_name").val(player_name).attr("disabled", true);
+        $("#player_data_edit_season").val(season).attr("disabled", true);
+        $("#player_data_edit_team_name").val(team_name).attr("disabled", true);
+        $("#player_data_edit_attri_value").val(attri_value);
+        $("#player_data_edit_attri_name").val(attri_name).attr("disabled", true);
+        $("#Modal_player_data").modal("show");
+    }
+
+ 
+    /**
+     * 初始化基础数据
+     */
+    function player_data_initSingleData() {
+        player_data_editFlag = false;
+        $("#player_data_edit_player_name").val("James Harden").attr("disabled", false);
+        $("#player_data_edit_season").val("17--18").attr("disabled", false);
+        $("#player_data_edit_team_name").val("HOU").attr("disabled", false);
+        $("#player_data_edit_attri_value").val("30");
+        $("#player_data_edit_attri_name").val("得分").attr("disabled", false); 
+    }
+ 
+    /**
+     * 清除
+     */
+    function player_data_clear() {
+        $("#player_data_edit_player_name").val("").attr("disabled", false);
+        $("#player_data_edit_season").val("");
+        $("#player_data_edit_team_name").val("").attr("disabled", false);
+        $("#player_data_edit_attri_value").val("").attr("disabled", false);
+        $("#player_data_edit_attri_name").val("").attr("disabled", false);
+        player_data_editFlag = false;
+    }
+ 
+    /**
+     * 添加数据
+     **/
+    function player_data_add() {
+//       var context = new SP.ClientContext.get_current();
+// this.website = context.get_web();
+// this.currentUser = website.get_currentUser();
+//         var role = current_user.rold_id;
+//         if (role != 3)
+//           {alert('你没有权限！');
+
+//        return;}
+
+        var addJson = {
+            "player_name": $("#player_data_edit_player_name").val(),
+            "season": $("#player_data_edit_season").val(),
+            "team_name": $("#player_data_edit_team_name").val(),
+            "attri_value": $("#player_data_edit_attri_value").val(),
+            "attri_name": $("#player_data_edit_attri_name").val()
+        };
+ 
+        player_data_ajax(addJson);
+    }
+
+
+        function player_data_del(player_name, season, team_name, attri_name) {
+        $.ajax({
+            url: "{{ url_for('api.player_data_table_delete') }}",
+            type: "POST",
+            data: {
+                "player_name": player_name,
+                "season": season,
+                "team_name": team_name,
+                "attri_name": attri_name
+            }, success: function (data) {
+                if (data['status']==='fail')
+                {
+                    alert('你没有权限！');
+                    return;
+                }
+
+                var_player_data_table.ajax.reload();
+                console.log("删除成功" + data);
+            }
+        });
+        }
+
+
+        function player_data_ajax(obj) {
+        var url ="{{ url_for('api.player_data_table_add') }}" ;
+        if(player_data_editFlag){
+            url = "{{ url_for('api.player_data_table_edit') }}";
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                "player_name": obj["player_name"],
+                "season": obj["season"],
+                "team_name": obj["team_name"],
+                "attri_value": obj["attri_value"],
+                "attri_name": obj["attri_name"]
+            }, success: function (data) {
+                if (data['status']==='fail')
+                {
+                    alert('你没有权限！');
+                    return;
+                }
+
+
+                var_player_data_table.ajax.reload();
+                $("#Modal_player_data").modal("hide");
+                $("#ModalLabel_player_data").text("新增");
+                player_data_clear();
+                // console.log("结果" + data);
+            }
+        });
+    }
+
+
+//
+//
+//    Player Contract Table
+//
+//
+
+$("#player_contract_save").click(player_contract_add);    // Modal的保存执行player_contract_add函数
+$("#player_contract_initData").click(player_contract_initSingleData);    
+// Modal的添加模拟数据，执行player_contract_initSingleData
+
+        function player_contract_table(data){
+            var_player_contract_table = $('#example3').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order": [0, "asc"],
+            "ajax": {
+              "url": "{{ url_for('api.player_contract_table') }}",
+              "type": "POST",
+              "data": data
+            },
+            "destroy": true,
+            "columns": [
+                {"title": "Player Name"},
+                {"title": "Season"},
+                {"title": "Team Name"},
+                {"title": "Salary"},
+                {"title": "Operation"}
+            ],
+            "columnDefs": [
+                {
+                    targets: 4,
+                    render: function(data, type, row, meta) {
+                        var context = 
+                        {
+                            'func': [
+                                {"name": "修改", "fn": "player_contract_edit(\'" + row["0"] + "\', \'" + row["2"] + "\', \'" + row["1"] + "\', \'" + row["3"] + "\')", "type": "primary"},
+                                {"name": "删除", "fn": "player_contract_del(\'" + row["0"] + "\', \'" + row["2"] + "\', \'" + row["1"] + "\')", "type": "danger"}
+                            ]
+                        };
+                        // var html = template(context);
+                        // return html;
+                        var html1 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][0]["fn"] + '">' + context['func'][0]["name"] + '</button>'
+                        var html2 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][1]["fn"] + '">' + context['func'][1]["name"] + '</button>'
+                        return html1 + html2;
+                    }
+                }
+            ] 
+            })
+        };
+
+
+        function player_contract_edit(player_name, team_name, season, salary) {
+        player_contract_editFlag = true;
+        $("#ModalLabel_player_contract").text("修改");
+        $("#player_contract_edit_player_name").val(player_name).attr("disabled", true);
+        $("#player_contract_edit_team_name").val(team_name).attr("disabled", true);
+        $("#player_contract_edit_season").val(season).attr("disabled", true);
+        $("#player_contract_edit_salary").val(salary);
+        $("#Modal_player_contract").modal("show");
+    }
+
+ 
+    /**
+     * 初始化基础数据
+     */
+    function player_contract_initSingleData() {
+        player_contract_editFlag = false;
+        $("#player_contract_edit_player_name").val("James Harden").attr("disabled", false);
+        $("#player_contract_edit_team_name").val("HOU").attr("disabled", false);
+        $("#player_contract_edit_season").val("23--24").attr("disabled", false);
+        $("#player_contract_edit_salary").val("4500");
+    }
+ 
+    /**
+     * 清除
+     */
+    function player_contract_clear() {
+        $("#player_contract_edit_player_name").val("").attr("disabled", false);
+        $("#player_contract_edit_team_name").val("").attr("disabled", false);
+        $("#player_contract_edit_season").val("").attr("disabled", false);
+        $("#player_contract_edit_salary").val("");
+        player_contract_editFlag = false;
+    }
+ 
+    /**
+     * 添加数据
+     **/
+    function player_contract_add() {
+        var addJson = {
+            "player_name": $("#player_contract_edit_player_name").val(),
+            "team_name": $("#player_contract_edit_team_name").val(),
+            "season": $("#player_contract_edit_season").val(),
+            "salary": $("#player_contract_edit_salary").val(),
+        };
+ 
+        player_contract_ajax(addJson);
+    }
+
+
+        function player_contract_del(player_name, team_name, season) {
+        $.ajax({
+            url: "{{ url_for('api.player_contract_table_delete') }}",
+            type: "POST",
+            data: {
+                "player_name": player_name,
+                "team_name": team_name,
+                "season": season
+            }, success: function (data) {
+                var_player_contract_table.ajax.reload();
+                console.log("删除成功" + data);
+            }
+        });
+        }
+
+
+        function player_contract_ajax(obj) {
+        var url ="{{ url_for('api.player_contract_table_add') }}" ;
+        if(player_contract_editFlag){
+            url = "{{ url_for('api.player_contract_table_edit') }}";
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                "player_name": obj["player_name"],
+                "team_name": obj["team_name"],
+                "season": obj["season"],
+                "salary": obj["salary"]
+            }, success: function (data) {
+                var_player_contract_table.ajax.reload();
+                $("#Modal_player_contract").modal("hide");
+                $("#ModalLabel_player_contract").text("新增");
+                player_contract_clear();
+                // console.log("结果" + data);
+            }
+        });
+    }
+
+
+//
+//
+//    Team Data Table
+//
+//
+
+
+$("#team_save").click(team_add);    // Modal的保存执行team_add函数
+$("#team_initData").click(team_initSingleData);    // Modal的添加模拟数据，执行team_initSingleData
+
+        function team_data_table(data){
+            var_team_data_table = $('#example3').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order": [0, "asc"],
+            "ajax": {
+              "url": "{{ url_for('api.team_data_table2') }}",
+              "type": "POST",
+              "data": data
+            },
+            "destroy": true,
+            "columns": [
+                {"title": "Team Name"},
+                {"title": "Season"},
+                {"title": "Attribute Value"},
+                {"title": "Attribute Name"},
+                {"title": "Operation"}
+            ],
+            "columnDefs": [
+                {
+                    targets: 4,
+                    render: function(data, type, row, meta) {
+                        var context = 
+                        {
+                            'func': [
+                                {"name": "修改", "fn": "team_edit(\'" + row["0"] + "\', \'" + row["1"] + "\', \'" + row["2"] + "\', \'" + row["3"] + "\')", "type": "primary"},
+                                {"name": "删除", "fn": "team_del(\'" + row["0"] + "\', \'" + row["1"] + "\', \'" + row["3"] + "\')", "type": "danger"}
+                            ]
+                        };
+                        // var html = template(context);
+                        // return html;
+                        var html1 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][0]["fn"] + '">' + context['func'][0]["name"] + '</button>'
+                        var html2 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][1]["fn"] + '">' + context['func'][1]["name"] + '</button>'
+                        return html1 + html2;
+                    }
+                }
+            ]
+            })
+        };
+
+        function team_edit(team_name, season, attri_value, attri_name) {
+        team_editFlag = true;
+        $("#ModalLabel_team_data").text("修改");
+        $("#team_edit_team_name").val(team_name).attr("disabled", true);
+        $("#team_edit_season").val(season).attr("disabled", true);
+        $("#team_edit_attri_value").val(attri_value);
+        $("#team_edit_attri_name").val(attri_name).attr("disabled", true);
+        $("#Modal_team_data").modal("show");
+    }
+
+ 
+    /**
+     * 初始化基础数据
+     */
+    function team_initSingleData() {
+        team_editFlag = false;
+        $("#team_edit_team_name").val("HOU").attr("disabled", false);
+        $("#team_edit_season").val("17--18").attr("disabled", false);
+        $("#team_edit_attri_value").val("100");
+        $("#team_edit_attri_name").val("得分").attr("disabled", false); 
+    }
+ 
+    /**
+     * 清除
+     */
+    function team_clear() {
+        $("#team_edit_team_name").val("").attr("disabled", false);
+        $("#team_edit_season").val("");
+        $("#team_edit_attri_value").val("").attr("disabled", false);
+        $("#team_edit_attri_name").val("").attr("disabled", false);
+        team_editFlag = false;
+    }
+ 
+    /**
+     * 添加数据
+     **/
+    function team_add() {
+        var addJson = {
+            "team_name": $("#team_edit_team_name").val(),
+            "season": $("#team_edit_season").val(),
+            "attri_value": $("#team_edit_attri_value").val(),
+            "attri_name": $("#team_edit_attri_name").val()
+        };
+ 
+        team_ajax(addJson);
+    }
+
+
+        function team_del(team_name, season, attri_name) {
+        $.ajax({
+            url: "{{ url_for('api.team_data_table_delete') }}",
+            type: "POST",
+            data: {
+                "team_name": team_name,
+                "season": season,
+                "attri_name": attri_name
+            }, success: function (data) {
+                var_team_data_table.ajax.reload();
+                console.log("删除成功" + data);
+            }
+        });
+        }
+
+
+        function team_ajax(obj) {
+        var url ="{{ url_for('api.team_data_table_add') }}" ;
+        if(team_editFlag){
+            url = "{{ url_for('api.team_data_table_edit') }}";
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                "team_name": obj["team_name"],
+                "season": obj["season"],
+                "attri_value": obj["attri_value"],
+                "attri_name": obj["attri_name"]
+            }, success: function (data) {
+                var_team_data_table.ajax.reload();
+                $("#Modal_team_data").modal("hide");
+                $("#ModalLabel_team_data").text("新增");
+                team_clear();
+                // console.log("结果" + data);
+            }
+        });
+    }
+
+
+
+//
+//
+//    Coach Data Table
+//
+//
+
+$("#coach_save").click(coach_add);    // Modal的保存执行coach_add函数
+$("#coach_initData").click(coach_initSingleData);    // Modal的添加模拟数据，执行coach_initSingleData
+
+        function coach_data_table(data){
+            var_coach_data_table = $('#example3').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order": [0, "asc"],
+            "ajax": {
+              "url": "{{ url_for('api.coach_data_table') }}",
+              "type": "POST",
+              "data": data
+            },
+            "destroy": true,
+            "columns": [
+                {"title": "Coach Name"},
+                {"title": "Season"},
+                {"title": "Win"},
+                {"title": "Loss"},
+                {"title": "Operation"}
+            ],
+            "columnDefs": [
+                {
+                    targets: 4,
+                    render: function(data, type, row, meta) {
+                        var context = 
+                        {
+                            'func': [
+                                {"name": "修改", "fn": "coach_edit(\'" + row["0"] + "\', \'" + row["1"] + "\', \'" + row["2"] + "\', \'" + row["3"] + "\')", "type": "primary"},
+                                {"name": "删除", "fn": "coach_del(\'" + row["0"] + "\', \'" + row["1"] + "\')", "type": "danger"}
+                            ]
+                        };
+                        // var html = template(context);
+                        // return html;
+                        var html1 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][0]["fn"] + '">' + context['func'][0]["name"] + '</button>'
+                        var html2 = '<button type="button" class="btn btn-' + type + 'btn-sm" onclick="' + context['func'][1]["fn"] + '">' + context['func'][1]["name"] + '</button>'
+                        return html1 + html2;
+                    }
+                }
+            ]
+            })
+        };
+
+
+
+        function coach_edit(coach_name, season, win, loss) {
+        coach_editFlag = true;
+        $("#ModalLabel_coach_data").text("修改");
+        $("#coach_edit_coach_name").val(coach_name).attr("disabled", true);
+        $("#coach_edit_season").val(season).attr("disabled", true);
+        $("#coach_edit_win").val(win);
+        $("#coach_edit_loss").val(loss);
+        $("#Modal_coach_data").modal("show");
+    }
+
+ 
+    /**
+     * 初始化基础数据
+     */
+    function coach_initSingleData() {
+        coach_editFlag = false;
+        $("#coach_edit_coach_name").val("Steve Kerr").attr("disabled", false);
+        $("#coach_edit_season").val("17--18").attr("disabled", false);
+        $("#coach_edit_win").val("62");
+        $("#coach_edit_loss").val("20"); 
+    }
+ 
+    /**
+     * 清除
+     */
+    function coach_clear() {
+        $("#coach_edit_coach_name").val("").attr("disabled", false);
+        $("#coach_edit_season").val("").attr("disabled", false);
+        $("#coach_edit_win").val("");
+        $("#coach_edit_loss").val("");
+        coach_editFlag = false;
+    }
+ 
+    /**
+     * 添加数据
+     **/
+    function coach_add() {
+        var addJson = {
+            "coach_name": $("#coach_edit_coach_name").val(),
+            "season": $("#coach_edit_season").val(),
+            "win": $("#coach_edit_win").val(),
+            "loss": $("#coach_edit_loss").val()
+        };
+ 
+        coach_ajax(addJson);
+    }
+
+
+        function coach_del(coach_name, season) {
+        $.ajax({
+            url: "{{ url_for('api.coach_data_table_delete') }}",
+            type: "POST",
+            data: {
+                "coach_name": coach_name,
+                "season": season
+            }, success: function (data) {
+                var_coach_data_table.ajax.reload();
+                console.log("删除成功" + data);
+            }
+        });
+        }
+
+
+        function coach_ajax(obj) {
+        var url ="{{ url_for('api.coach_data_table_add') }}" ;
+        if(coach_editFlag){
+            url = "{{ url_for('api.coach_data_table_edit') }}";
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                "coach_name": obj["coach_name"],
+                "season": obj["season"],
+                "win": obj["win"],
+                "loss": obj["loss"]
+            }, success: function (data) {
+                var_coach_data_table.ajax.reload();
+                $("#Modal_coach_data").modal("hide");
+                $("#ModalLabel_coach_data").text("新增");
+                coach_clear();
+                // console.log("结果" + data);
+            }
+        });
+    }
+
+
+/*
+*
+*
+*    HTML DOM的动态更新
+*
+*
+*/
+
+
+
+        // 333动态修改球员信息
+        function changePlayerInfo(obj1, obj2, obj3, obj4, obj5, obj6, obj7, data){
+            var p1 = document.getElementById(obj1);
+            var p2 = document.getElementById(obj2); 
+            var p3 = document.getElementById(obj3);
+            var p4 = document.getElementById(obj4); 
+            var p5 = document.getElementById(obj5);
+            var p6 = document.getElementById(obj6); 
+            var p7 = document.getElementById(obj7);
+            
+            // 向后端请求球队的信息
+            $.ajax({
+                  type:'POST',
+                  url:"{{ url_for('api.player_info_table') }}",
+                  data: data,
+                  success: function(data){ //成功的话，得到消息
+　　　　              p1.innerHTML = "进入NBA年份  -  " + data["data"][0][1];
+                     p2.innerHTML = "退出NBA年份（2018即为现役球员）  -  " + data["data"][0][2];
+                     p3.innerHTML = "场上位置  -  " + data["data"][0][3];
+                     p4.innerHTML = "身高（英尺, 英寸）  -  " + data["data"][0][4];
+                     p5.innerHTML = "体重（磅）  -  " + data["data"][0][5];
+                     p6.innerHTML = "出生年份  -  " + data["data"][0][6];
+                     p7.innerHTML = "毕业大学  -  " + data["data"][0][7];
+                  }
+              });
+        };
+
+
+        // js动态添加球队图标，球队信息
+        function changeImg(obj, team_name){
+            var img = document.getElementById(obj);
+            img.src = "../../static/image/" + team_name + "_icon.jpg";
+            img.width = "200";
+            img.height = "200";
+        };
+        function addElementImg(obj, team_name) {
+　　　　     var ul = document.getElementById(obj);
+ 
+　　　　    //添加 li
+　　　　    var li = document.createElement("li");
+ 
+　　　　    //添加 img
+　　　　    var img = document.createElement("img");
+ 
+　　　　    //设置 img 属性，如 id
+　　　　    img.setAttribute("id", "TeamIconImg");
+           img.height = "200";
+           img.width = "200";
+ 
+　　　　    //设置 img 图片地址
+　　　　    img.src = "../../static/image/" + team_name + "_icon.jpg";
+ 
+　　　　    li.appendChild(img);
+　　　　    ul.appendChild(li);
+　　     };
+        function changeTeamInfo(obj1, obj2, data) {
+　　　　     var p1 = document.getElementById(obj1);
+            var p2 = document.getElementById(obj2); 
+            
+            // 向后端请求球队的信息
+            $.ajax({
+                  type:'POST',
+                  url:"{{ url_for('api.team_data_table1') }}",
+                  data: data,
+                  success: function(data){ //成功的话，得到消息
+　　　　              p1.innerHTML = "球队所在城市  -  " + data["data"][0][1];
+                     p2.innerHTML = "球队创建年份  -  " + data["data"][0][2];
+                  }
+              });
+　　     };
+
+        var select_options = [
+            "all_seasons",
+            "06/07",
+            "07/08",
+            "08/09",
+            "09/10",
+            "10/11",
+            "11/12",
+            "12/13",
+            "13/14",
+            "14/15",
+            "15/16",
+            "16/17"
+        ];
+
+
+        // 444
+        function changeto_player_table(obj1, obj2, obj3)
+        {
+            var parent1 = document.getElementById(obj1);
+            var parent2 = document.getElementById(obj2);
+            // var parent3 = document.getElementById(obj3);
+            $("#" + obj1).empty();
+            $("#" + obj2).empty();
+            // $('#' + obj3).empty();
+
+
+            // parent1 - 查询条件新建
+            var p_title1 = document.createElement("p");
+            p_title1.innerHTML = "Player Name";
+
+            var form = document.createElement("form");
+            form.action="/";
+            form.method="post";
+            form.id="formid";
+
+            var player_name_input = document.createElement("input");
+            player_name_input.type="text";  
+            player_name_input.name="InPlayer"; 
+            player_name_input.id="InPlayer"; 
+            player_name_input.align="center"; 
+            player_name_input.style="height: 32px; width: 400px; font-size: 16px";
+            player_name_input.placeholder="James Harden, Kevin Durant, LeBron James...";
+
+            var p_placeholder1 = document.createElement("p");
+
+
+            var select = document.createElement("select");
+            select.id = "selectid3";
+            select.align = "center";
+            for(var i=0; i < 12; i++)
+            {
+                var newItem = document.createElement("option");
+                newItem.innerHTML = select_options[i];
+                newItem.value = select_options[i];
+                newItem.align = "center";
+                select.appendChild(newItem);
+            }
+
+            var submit_input = document.createElement("input");
+            submit_input.type="button"; 
+            submit_input.name="buttonid1"; 
+            submit_input.value="submit"; 
+            submit_input.align="center"; 
+            submit_input.onclick=function(){
+                query_data_player();
+            };
+
+            // 重构parent1
+            form.appendChild(player_name_input);
+            form.appendChild(p_placeholder1);
+            form.appendChild(select);
+            form.appendChild(submit_input);
+            parent1.appendChild(p_title1);
+            parent1.appendChild(form);
+
+
+            // parent2 - 信息栏新建
+            var div = document.createElement("div");
+
+            var p1 = document.createElement("p");
+            p1.id = "player_year_start_dynamic";
+            var p2 = document.createElement("p");
+            p2.id = "player_year_end_dynamic";
+            var p3 = document.createElement("p");
+            p3.id = "player_position_dynamic";
+            var p4 = document.createElement("p");
+            p4.id = "player_height_dynamic";
+            var p5 = document.createElement("p");
+            p5.id = "player_weight_dynamic";
+            var p6 = document.createElement("p");
+            p6.id = "player_birth_year_dynamic";
+            var p7 = document.createElement("p");
+            p7.id = "player_college_dynamic";
+            var p8 = document.createElement("p");
+
+            div.appendChild(p1);
+            div.appendChild(p2);
+            div.appendChild(p3);
+            div.appendChild(p4);
+            div.appendChild(p5);
+            div.appendChild(p6);
+            div.appendChild(p7);
+            div.appendChild(p8);
+
+            parent2.appendChild(div);
+
+
+            // parent3 - DataTable更新
+            // var table = document.createElement("table");
+            // var thead = document.createElement("thead");
+            // table.id = "example3";
+            // table.class = "table table-bordered table-striped";
+
+            // table.appendChild(thead);
+            // parent3.appendChild(table);
+        };
+
+
+        function changeto_playercontract_table(obj1, obj2, obj3)
+        {
+            var parent1 = document.getElementById(obj1);
+            var parent2 = document.getElementById(obj2);
+            $("#" + obj1).empty();
+            $("#" + obj2).empty();
+
+
+            // parent1 - 查询条件新建
+            var form = document.createElement("form");
+            form.action="/";
+            form.method="post";
+            form.id="formid";
+
+            var p_title1 = document.createElement("p");
+            p_title1.innerHTML = "Player Name";
+
+            var player_name_input = document.createElement("input");
+            player_name_input.type="text";  
+            player_name_input.name="InPlayer"; 
+            player_name_input.id="InPlayer"; 
+            player_name_input.align="center"; 
+            player_name_input.style="height: 32px; width: 400px; font-size: 16px";
+            player_name_input.placeholder="James Harden, Kevin Durant, LeBron James...";
+
+            var p_placeholder1 = document.createElement("p");
+
+            var p_title2 = document.createElement("p");
+            p_title2.innerHTML = "Team Name";
+
+            var team_name_input = document.createElement("input");
+            team_name_input.type="text";  
+            team_name_input.name="InTeam"; 
+            team_name_input.id="InTeam"; 
+            team_name_input.align="center"; 
+            team_name_input.style="height: 32px; width: 400px; font-size: 16px";
+            team_name_input.placeholder="HOU GSW OKC...";
+
+            var p_placeholder2 = document.createElement("p");
+
+
+            var select = document.createElement("select");
+            select.id = "selectid3";
+            select.align = "center";
+            for(var i=0; i < 12; i++)
+            {
+                var newItem = document.createElement("option");
+                newItem.innerHTML = select_options[i];
+                newItem.value = select_options[i];
+                newItem.align = "center";
+                select.appendChild(newItem);
+            }
+
+            var submit_input = document.createElement("input");
+            submit_input.type="button"; 
+            submit_input.name="buttonid1"; 
+            submit_input.value="submit"; 
+            submit_input.align="center"; 
+            submit_input.onclick=function(){
+                query_contract_player();
+            };
+
+            // 重构parent1
+            form.appendChild(p_title1);
+            form.appendChild(player_name_input);
+            form.appendChild(p_placeholder1);
+            form.appendChild(p_title2);
+            form.appendChild(team_name_input);
+            form.appendChild(p_placeholder2);
+            form.appendChild(select);
+            form.appendChild(submit_input);
+            parent1.appendChild(form);
+        };
+
+
+        function changeto_team_table(obj1, obj2, obj3)
+        {
+            var parent1 = document.getElementById(obj1);
+            var parent2 = document.getElementById(obj2);
+            // var parent3 = document.getElementById(obj3);
+            $("#" + obj1).empty();
+            $("#" + obj2).empty();
+            // $('#' + obj3).empty();
+
+
+            // parent1 - 查询条件新建
+            var p_title1 = document.createElement("p");
+            p_title1.innerHTML = "Team Name";
+
+            var form = document.createElement("form");
+            form.action="/";
+            form.method="post";
+            form.id="formid";
+
+            var team_name_input = document.createElement("input");
+            team_name_input.type="text";  
+            team_name_input.name="InTeam"; 
+            team_name_input.id="InTeam"; 
+            team_name_input.align="center"; 
+            team_name_input.style="height: 32px; width: 400px; font-size: 16px";
+            team_name_input.placeholder="HOU GSW OKC...";
+
+            var p_placeholder1 = document.createElement("p");
+
+
+            var select = document.createElement("select");
+            select.id = "selectid3";
+            select.align = "center";
+            for(var i=0; i < 12; i++)
+            {
+                var newItem = document.createElement("option");
+                newItem.innerHTML = select_options[i];
+                newItem.value = select_options[i];
+                newItem.align = "center";
+                select.appendChild(newItem);
+            }
+
+            var submit_input = document.createElement("input");
+            submit_input.type="button"; 
+            submit_input.name="buttonid1"; 
+            submit_input.value="submit"; 
+            submit_input.align="center"; 
+            submit_input.onclick=function(){
+                query_data_team();
+            };
+
+            // 重构parent1
+            form.appendChild(team_name_input);
+            form.appendChild(p_placeholder1);
+            form.appendChild(select);
+            form.appendChild(submit_input);
+            parent1.appendChild(p_title1);
+            parent1.appendChild(form);
+
+
+            // parent2 - 信息栏新建
+            var ul = document.createElement("ul");
+            var div = document.createElement("div");
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            img.id = "team_icon_dynamic";
+            li.appendChild(img);
+            ul.appendChild(li);
+
+            var p1 = document.createElement("p");
+            p1.id = "team_city_dynamic";
+            var p2 = document.createElement("p");
+            p2.id = "team_year_dynamic";
+            var p3 = document.createElement("p");
+            div.appendChild(p1);
+            div.appendChild(p2);
+            div.appendChild(p3);
+
+            parent2.appendChild(ul);
+            parent2.appendChild(div);
+
+
+            // parent3 - DataTable更新
+            // var table = document.createElement("table");
+            // var thead = document.createElement("thead");
+            // table.id = "example3";
+            // table.class = "table table-bordered table-striped";
+
+            // table.appendChild(thead);
+            // parent3.appendChild(table);
+        };
+
+
+
+        function changeto_coach_table(obj1, obj2, obj3)
+        {
+            var parent1 = document.getElementById(obj1);
+            var parent2 = document.getElementById(obj2);
+            // var parent3 = document.getElementById(obj3);
+            $("#" + obj1).empty();
+            $("#" + obj2).empty();
+            // $('#' + obj3).empty();
+
+            // parent1 - 查询条件
+            var p_title1 = document.createElement("p");
+            p_title1.innerHTML = "Coach Name";
+
+            var form = document.createElement("form");
+            form.action="/";
+            form.method="post";
+            form.id="formid";
+
+            var team_name_input = document.createElement("input");
+            team_name_input.type="text";  
+            team_name_input.name="InCoach"; 
+            team_name_input.id="InCoach"; 
+            team_name_input.align="center"; 
+            team_name_input.style="height: 32px; width: 400px; font-size: 16px";
+            team_name_input.placeholder="Steve Kerr, Doc Rivers...";
+
+            var p_placeholder1 = document.createElement("p");
+
+
+            var select = document.createElement("select");
+            select.id = "selectid3";
+            select.align = "center";
+            for(var i=0; i < 12; i++)
+            {
+                var newItem = document.createElement("option");
+                newItem.innerHTML = select_options[i];
+                newItem.value = select_options[i];
+                newItem.align = "center";
+                select.appendChild(newItem);
+            }
+
+            var submit_input = document.createElement("input");
+            submit_input.type="button"; 
+            submit_input.name="buttonid1"; 
+            submit_input.value="submit"; 
+            submit_input.align="center"; 
+            submit_input.onclick=function(){
+                query_data_coach();
+            };
+
+            // 重构parent1
+            form.appendChild(team_name_input);
+            form.appendChild(p_placeholder1);
+            form.appendChild(select);
+            form.appendChild(submit_input);
+            parent1.appendChild(p_title1);
+            parent1.appendChild(form);
+
+            // parent2 - 信息栏
+
+
+
+            // parent3 - DataTable更新
+            // var table = document.createElement("table");
+            // var thead = document.createElement("thead");
+            // table.id = "example3";
+            // table.class = "table table-bordered table-striped";
+
+            // table.appendChild(thead);
+            // parent3.appendChild(table);
+        };
+
+
+        
+</script>
+
+
+</body>
+</html>
